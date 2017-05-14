@@ -14,3 +14,12 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::any('/a',function (){
+    return '123';
+});
+
+
+Route::get('/home', 'HomeController@index')->name('home');
