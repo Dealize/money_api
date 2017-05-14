@@ -9,11 +9,11 @@ use Illuminate\Support\Facades\Auth;
 
 class MyAuthController extends Controller
 {
-    //
     public function login(Request $request){
         $email = $request->input('email');
         $password = $request->input('password');
-        if(Auth::attempt(['email'=>$email,'password'=>$password])){
+        $remember = true;
+        if(Auth::attempt(['email'=>$email,'password'=>$password],$remember)){
             return response()->json([
                 'state'=>1,
                 'msg'=>'login success!'

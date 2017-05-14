@@ -29,6 +29,11 @@ Route::post('/myAuthor/login','MyAuthController@login');
 Route::post('/myAuthor/register','MyAuthController@register');
 
 
+Route::post('/category/first/add','CategoryController@firstAdd')->middleware('myAuth');
+//Route::middleware('auth:api')->post('/category/first/add',function(){
+//    dd(123);
+//});
+
 
 Route::middleware('auth:api')->get('/home', 'HomeController@index')->name('home');
 
