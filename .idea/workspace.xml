@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="89a61035-9839-4480-8a9f-dc8c68e3b1ad" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/MyAuthController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/MyAuthController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Kernel.php" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/web.php" afterPath="$PROJECT_DIR$/routes/web.php" />
-    </list>
+    <list default="true" id="89a61035-9839-4480-8a9f-dc8c68e3b1ad" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -391,7 +386,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1494750771388</updated>
-      <workItem from="1494750773914" duration="13318000" />
+      <workItem from="1494750773914" duration="13421000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1494751348766</created>
@@ -414,11 +409,18 @@
       <option name="project" value="LOCAL" />
       <updated>1494772660719</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="建立类目模型">
+      <created>1494775108714</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1494775108714</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13318000" />
+    <option name="totallyTimeSpent" value="13421000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -475,7 +477,8 @@
     <MESSAGE value="init" />
     <MESSAGE value="init sql" />
     <MESSAGE value="注册接口搞定" />
-    <option name="LAST_COMMIT_MESSAGE" value="注册接口搞定" />
+    <MESSAGE value="建立类目模型" />
+    <option name="LAST_COMMIT_MESSAGE" value="建立类目模型" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
