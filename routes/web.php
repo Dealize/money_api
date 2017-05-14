@@ -17,9 +17,18 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::any('/a',function (){
-    return '123';
+//Route::any('/register',function (){
+//    return '123';
+//});
+Route::post('/hello',function(){
+    return '6666';
 });
 
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/myAuthor/login','MyAuthController@login');
+Route::post('/myAuthor/register','MyAuthController@register');
+
+
+
+Route::middleware('auth:api')->get('/home', 'HomeController@index')->name('home');
+
