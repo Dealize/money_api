@@ -30,6 +30,11 @@ Route::post('/myAuthor/register','MyAuthController@register');
 
 
 Route::post('/category/first/add','CategoryController@firstAdd')->middleware('myAuth');
+Route::post('/category/first/update','CategoryController@firstUpdate')->middleware('myAuth');
+Route::post('/category/second/add','CategoryController@secondAdd')->middleware('myAuth');
+Route::post('/category/get','CategoryController@getInfo')->middleware('myAuth');
+
+
 //Route::middleware('auth:api')->post('/category/first/add',function(){
 //    dd(123);
 //});
