@@ -18,10 +18,10 @@ class CreateSecondCategoryTable extends Migration
             $table->string('name');
             $table->unsignedInteger('firstCategory_id');
             $table->unsignedInteger('user_id')->nullable()->default(0);
+            $table->string('valiable')->default('true');
             $table->timestamps();
-
-            $table->foreign('firstCategory_id')->references('id')->on('users');
-            $table->foreign('user_id')->references('id')->on('firstCategory');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('firstCategory_id')->references('id')->on('firstCategory');
         });
     }
 
@@ -32,6 +32,6 @@ class CreateSecondCategoryTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('secondCategory');
+        Schema::drop('secondCategory');
     }
 }

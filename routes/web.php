@@ -30,10 +30,31 @@ Route::post('/myAuthor/register','MyAuthController@register');
 
 
 Route::post('/category/first/add','CategoryController@firstAdd')->middleware('myAuth');
-//Route::middleware('auth:api')->post('/category/first/add',function(){
-//    dd(123);
-//});
+Route::post('/category/first/update','CategoryController@firstUpdate')->middleware('myAuth');
+Route::post('/category/second/add','CategoryController@secondAdd')->middleware('myAuth');
+Route::post('/category/get','CategoryController@getInfo')->middleware('myAuth');
+
+Route::post('/bill/add','BillController@billAdd')->middleware('myAuth');
+//Route::post('/bill/list','BillController@billAdd')->middleware('myAuth');
+//Route::post('/bill/update','BillController@billAdd')->middleware('myAuth');
+//
+//Route::post('/cost/list','BillController@billAdd')->middleware('myAuth');
+//Route::post('/cost/get','BillController@billAdd')->middleware('myAuth');
+
+
+Route::post('wallet/add','WalletController@walletAdd')->middleware('myAuth');
+//Route::post('wallet/list','WalletController@walletList')->middleware('myAuth');
+//Route::post('wallet/detail','WalletController@walletDetail')->middleware('myAuth');
+
 
 
 Route::middleware('auth:api')->get('/home', 'HomeController@index')->name('home');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

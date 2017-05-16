@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCostTable extends Migration
+class CreateWalletTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,14 @@ class CreateCostTable extends Migration
      */
     public function up()
     {
-        Schema::create('cost', function (Blueprint $table) {
+        Schema::create('wallet', function (Blueprint $table) {
             $table->increments('id');
-            $table->decimal('dailyCost',7,2)->comment('日均消费');
-            $table->unsignedInteger('bill_id');
-            $table->timestamp('endTime');
-            $table->string('isWorth')->comment('是否值得');
+            $table->string('name');
+            $table->decimal('money',7,2);
             $table->unsignedInteger('user_id');
-            $table->integer('days')->comment('持续的天数');
+            $table->string('valiable')->default('true');
             $table->timestamps();
-
-
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('bill_id')->references('id')->on('bills');
         });
     }
 
@@ -36,6 +31,6 @@ class CreateCostTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cost');
+        Schema::drop('wallet');
     }
 }
