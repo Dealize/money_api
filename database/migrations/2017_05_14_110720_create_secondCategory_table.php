@@ -20,7 +20,6 @@ class CreateSecondCategoryTable extends Migration
             $table->unsignedInteger('user_id')->nullable()->default(0);
             $table->string('valiable')->default('true');
             $table->timestamps();
-//  新增了valiable的默认值， 还没有migrate
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('firstCategory_id')->references('id')->on('firstCategory');
         });
@@ -33,6 +32,6 @@ class CreateSecondCategoryTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('secondCategory');
+        Schema::drop('secondCategory');
     }
 }

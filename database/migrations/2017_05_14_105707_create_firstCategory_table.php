@@ -17,8 +17,8 @@ class CreateFirstCategoryTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->unsignedInteger('user_id')->nullable();
+            $table->string('valiable')->default('true');
             $table->timestamps();
-
             $table->foreign('user_id')->references('id')->on('users');
         });
     }
@@ -31,5 +31,6 @@ class CreateFirstCategoryTable extends Migration
     public function down()
     {
         //
+        Schema::drop('firstCategory');
     }
 }
