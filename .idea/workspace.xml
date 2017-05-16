@@ -2,19 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="89a61035-9839-4480-8a9f-dc8c68e3b1ad" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/todu.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2017_05_14_112744_create_cost_table.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.env" afterPath="$PROJECT_DIR$/.env" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2017_05_14_105707_create_firstCategory_table.php" afterPath="$PROJECT_DIR$/database/migrations/2017_05_14_105707_create_firstCategory_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2017_05_14_110720_create_secondCategory_table.php" afterPath="$PROJECT_DIR$/database/migrations/2017_05_14_110720_create_secondCategory_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2017_05_14_111959_create_bills_table.php" afterPath="$PROJECT_DIR$/database/migrations/2017_05_14_111959_create_bills_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/web.php" afterPath="$PROJECT_DIR$/routes/web.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -550,7 +538,7 @@
       <option name="presentableId" value="Default" />
       <updated>1494750771388</updated>
       <workItem from="1494750773914" duration="31838000" />
-      <workItem from="1494942678632" duration="4170000" />
+      <workItem from="1494942678632" duration="4191000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1494751348766</created>
@@ -587,11 +575,18 @@
       <option name="project" value="LOCAL" />
       <updated>1494849114576</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="reset migration">
+      <created>1494950298159</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1494950298160</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36008000" />
+    <option name="totallyTimeSpent" value="36029000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -659,7 +654,8 @@
     <MESSAGE value="注册接口搞定" />
     <MESSAGE value="建立类目模型" />
     <MESSAGE value="类目这里也好了" />
-    <option name="LAST_COMMIT_MESSAGE" value="类目这里也好了" />
+    <MESSAGE value="reset migration" />
+    <option name="LAST_COMMIT_MESSAGE" value="reset migration" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
