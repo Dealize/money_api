@@ -37,13 +37,30 @@ class WalletController extends Controller
         $walletModel = new Wallet;
         $walletModelData = $walletModel->where('user_id',Auth::user()->id)->get();
         return response()->json([
-            'msg'=>'save success',
+            'msg'=>'list success',
             'state'=>1,
             'data'=>$walletModelData
         ]);
     }
-    public function walletDetail(Request $request){
-
+    public function walletUpdate(Request $request){
+        $walletModel = new Wallet;
+        $inputData = $this->check_valiable($request,['id','money','name']);
+        $walletModelData = $walletModel->find($inputData['data']['id']);
+        if($walletModelData->user_id != Auth::uer()->id){
+            return response()->json([
+                'msg'=>'该钱包非当前用户创建',
+                'state'=>0,
+            ]);
+        }
+        $walletModelData->money = $inputData['data']['money'];
+        $walletModelData->name = $inputData['data']['name'];
+        if($walletModelData->save()){
+            return response()->json([
+                'msg'=>'list success',
+                'state'=>1,
+                'data'=>$walletModelData
+            ]);
+        };
     }
     private function check_valiable($request,$type){
         $name = $request->input('name');
@@ -77,7 +94,7 @@ class WalletController extends Controller
                 return $result;
             }else{
                 $result['result'] = true;
-                $result['data']['id'] = id;
+                $result['data']['id'] = $id;
             }
         }
         if(in_array('money',$type) ){
