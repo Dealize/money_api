@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Wallet extends Model
 {
     //
-    protected $table = 'firstCategory';
+    protected $table = 'wallet';
     public $timestamps = true;
 }

@@ -26,6 +26,11 @@ class CategoryController extends Controller
                 'msg'=>'save success',
                 'state'=>1
             ]);
+        }else{
+            return response()->json([
+                'msg'=>'save failed',
+                'state'=>0
+            ]);
         }
     }
     public function firstUpdate(Request $request){
@@ -78,13 +83,16 @@ class CategoryController extends Controller
         $secondCategory = new SecondCategory;
         $finalData = [];
 //        dd(Auth::user()->id);
-        $secondCategoryData = $secondCategory->where('user_id',Auth::user()->id)->get();
-        foreach ($secondCategoryData as $item){
-            $item->firstCategory;
+//        $secondCategoryData =
+        $firstCategoryData = $firstCategory->where('user_id',Auth::user()->id)->get();
+
+        foreach ($firstCategoryData as $item){
+            $secondCategoryData = $secondCategory->where('firstCategory_id',$item->id)->get();
+            $item['secondCategory'] = $secondCategoryData;
         }
         return response()->json([
             'state'=>1,
-            'data'=>$secondCategoryData
+            'data'=>$firstCategoryData
         ]);
     }
     private function check_valiable($request,$type=0){
