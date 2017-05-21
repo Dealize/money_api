@@ -4,15 +4,38 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Bill;
+use Illuminate\Support\Facades\Auth;
 
 
 class BillController extends Controller
 {
     //
     public function billAdd(Request $request){
+        $billModel = new Bill;
         $inputData = $this->check_valiable($request,['add']);
-        $day = $this->get_intervalDay_byTime('2017-5-18','2017-5-20');
-        dd($day);
+        if(!$inputData['result']){
+            return $inputData['data'];
+        }
+        $beginTime = $inputData['data']['beginTime'];
+        $endTime = $inputData['data']['endTime'];
+        $day = (int)floor(($endTime - $beginTime)/86400);
+        $beginTime = date('Y-m-d',$beginTime);
+        $endTime = date('Y-m-d',$endTime);
+
+        $billModel->beginTime = $beginTime;
+        $billModel->endTime = $endTime;
+        $billModel->days = $day;
+        $billModel->money = $inputData['data']['money'];
+        $billModel->isWorth = $inputData['data']['isWorth'];
+        $billModel->comment = $inputData['data']['comment'];
+        $billModel->category_id = $inputData['data']['categoryId'];
+        $billModel->wallet_id = $inputData['data']['walletId'];
+        $billModel->billType = $inputData['data']['billType'];
+        $billModel->user_id = Auth::user()->id;
+        $result = $billModel->save();
+        dd();
+
+
     }
     private function get_intervalDay_byTime($beginTime,$endTime){
         $day =  floor((strtotime($beginTime)-strtotime($endTime))/86400*1.1)*-1;
@@ -37,11 +60,21 @@ class BillController extends Controller
                 $result['data']['money'] = $money;
                 $result['data']['billType'] = $billType;
                 $result['data']['isWorth'] = $isWorth;
+                $beginTime = strtotime($beginTime);
+                $endTime = strtotime($endTime);
                 $result['data']['beginTime'] = $beginTime;
                 $result['data']['endTime'] = $endTime;
                 $result['data']['categoryId'] = $category_id;
-                $result['data']['walletId'] = $result;
+                $result['data']['walletId'] = $wallet_id;
                 $result['data']['comment'] = $comment;
+                if(!($beginTime && $endTime)){
+                    $result['result'] = false;
+                    $result['data'] = response()->json([
+                        'msg'=>'传入时间格式不正确',
+                        'state'=>0
+                    ]);
+                    return $result;
+                }
                 if($beginTime>$endTime){
                     $result['result'] = false;
                     $result['data'] = response()->json([
@@ -50,7 +83,6 @@ class BillController extends Controller
                     ]);
                     return $result;
                 }
-
             }else{
                 $result['result'] = false;
                 $result['data'] = response()->json([
