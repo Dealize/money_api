@@ -19,13 +19,18 @@ class BillController extends Controller
         $beginTime = $inputData['data']['beginTime'];
         $endTime = $inputData['data']['endTime'];
         $day = (int)floor(($endTime - $beginTime)/86400);
+        if($day==0){
+            $day = 1;
+        }
         $beginTime = date('Y-m-d',$beginTime);
         $endTime = date('Y-m-d',$endTime);
 
         $billModel->beginTime = $beginTime;
         $billModel->endTime = $endTime;
         $billModel->days = $day;
-        $billModel->money = $inputData['data']['money'];
+        $money = $inputData['data']['money'];
+        $billModel->money = $money;
+        $billModel->daily_cost = bcdiv($money,$day,2);
         $billModel->isWorth = $inputData['data']['isWorth'];
         $billModel->comment = $inputData['data']['comment'];
         $billModel->category_id = $inputData['data']['categoryId'];
@@ -33,9 +38,12 @@ class BillController extends Controller
         $billModel->billType = $inputData['data']['billType'];
         $billModel->user_id = Auth::user()->id;
         $result = $billModel->save();
-        dd();
-
-
+        if($result){
+            return response()->json([
+                'msg'=>'save success',
+                'state'=>1
+            ]);
+        }
     }
     private function get_intervalDay_byTime($beginTime,$endTime){
         $day =  floor((strtotime($beginTime)-strtotime($endTime))/86400*1.1)*-1;

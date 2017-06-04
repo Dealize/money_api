@@ -43,10 +43,12 @@ Route::post('/bill/add','BillController@billAdd')->middleware('myAuth');
 
 
 Route::post('/wallet/add','WalletController@walletAdd')->middleware('myAuth');
-Route::post('wallet/list','WalletController@walletList')->middleware('myAuth');
-Route::post('wallet/detail','WalletController@walletDetail')->middleware('myAuth');
-Route::post('wallet/update','WalletController@walletUpdate')->middleware('myAuth');
+Route::post('/wallet/list','WalletController@walletList')->middleware('myAuth');
+Route::post('/wallet/detail','WalletController@walletDetail')->middleware('myAuth');
+Route::post('/wallet/update','WalletController@walletUpdate')->middleware('myAuth');
 
+
+Route::post('/report/daily','ReportController@daily')->middleware('myAuth');
 
 
 
