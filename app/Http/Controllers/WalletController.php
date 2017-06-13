@@ -41,6 +41,7 @@ class WalletController extends Controller
             'state'=>1,
             'data'=>$walletModelData
         ]);
+
     }
     public function walletUpdate(Request $request){
         $walletModel = new Wallet;
