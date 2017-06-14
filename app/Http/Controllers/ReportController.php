@@ -104,8 +104,8 @@ class ReportController extends Controller
 
     }
     private function get_intervalDays($beginTime,$endTime){
-        $time1 = mktime($beginTime);
-        $time2 = time($endTime);
-        dd($time2,$time1);
+        $time1 = strtotime($beginTime);
+        $time2 = strtotime($endTime);
+        dd($time2-$time1);
     }
 }
