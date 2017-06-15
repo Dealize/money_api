@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="89a61035-9839-4480-8a9f-dc8c68e3b1ad" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Bill.php" afterPath="$PROJECT_DIR$/app/Bill.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/ReportController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/ReportController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/web.php" afterPath="$PROJECT_DIR$/routes/web.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -44,12 +42,21 @@
           <file leaf-file-name="ReportController.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ReportController.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="875">
-                  <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+                <state relative-caret-position="725">
+                  <caret line="80" column="4" lean-forward="true" selection-start-line="80" selection-start-column="4" selection-end-line="80" selection-end-column="4" />
                   <folding>
                     <element signature="e#40#68#0#PHP" expanded="true" />
-                    <element signature="e#3294#3612#0#PHP" expanded="false" />
-                    <element signature="e#3523#3579#0#PHP" expanded="false" />
+                    <element signature="e#186#685#0#PHP" expanded="false" />
+                    <element signature="e#461#677#1#PHP" expanded="false" />
+                    <element signature="e#530#667#1#PHP" expanded="false" />
+                    <element signature="e#966#1258#0#PHP" expanded="false" />
+                    <element signature="e#1093#1149#1#PHP" expanded="false" />
+                    <element signature="e#1194#1251#0#PHP" expanded="false" />
+                    <element signature="e#1263#2269#0#PHP" expanded="false" />
+                    <element signature="e#1619#1761#1#PHP" expanded="false" />
+                    <element signature="e#3161#4849#0#PHP" expanded="false" />
+                    <element signature="e#4854#5172#0#PHP" expanded="false" />
+                    <element signature="e#5083#5139#0#PHP" expanded="false" />
                   </folding>
                 </state>
               </provider>
@@ -252,9 +259,9 @@
         <option value="$PROJECT_DIR$/database/migrations/2017_06_05_230641_reset_bills_table.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/WalletController.php" />
         <option value="$PROJECT_DIR$/database/migrations/2017_06_14_074824_create_billV2_table.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/ReportController.php" />
         <option value="$PROJECT_DIR$/app/Bill.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/ReportController.php" />
       </list>
     </option>
   </component>
@@ -673,7 +680,7 @@
       <workItem from="1496581343078" duration="3316000" />
       <workItem from="1496674544114" duration="6059000" />
       <workItem from="1497395497718" duration="3315000" />
-      <workItem from="1497535503062" duration="3093000" />
+      <workItem from="1497535503062" duration="4994000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1494751348766</created>
@@ -794,11 +801,18 @@
       <option name="project" value="LOCAL" />
       <updated>1497398793885</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="dailyreport is finish">
+      <created>1497538675352</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1497538675352</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="73631000" />
+    <option name="totallyTimeSpent" value="75532000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -898,7 +912,8 @@
     <MESSAGE value="billAdd" />
     <MESSAGE value="到公司了修改下migrate，然后重新迁移个数据库吧" />
     <MESSAGE value="算了还是不迁移了，日后再说吧" />
-    <option name="LAST_COMMIT_MESSAGE" value="算了还是不迁移了，日后再说吧" />
+    <MESSAGE value="dailyreport is finish" />
+    <option name="LAST_COMMIT_MESSAGE" value="dailyreport is finish" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1230,12 +1245,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ReportController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="875">
-          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+        <state relative-caret-position="725">
+          <caret line="80" column="4" lean-forward="true" selection-start-line="80" selection-start-column="4" selection-end-line="80" selection-end-column="4" />
           <folding>
             <element signature="e#40#68#0#PHP" expanded="true" />
-            <element signature="e#3294#3612#0#PHP" expanded="false" />
-            <element signature="e#3523#3579#0#PHP" expanded="false" />
+            <element signature="e#186#685#0#PHP" expanded="false" />
+            <element signature="e#461#677#1#PHP" expanded="false" />
+            <element signature="e#530#667#1#PHP" expanded="false" />
+            <element signature="e#966#1258#0#PHP" expanded="false" />
+            <element signature="e#1093#1149#1#PHP" expanded="false" />
+            <element signature="e#1194#1251#0#PHP" expanded="false" />
+            <element signature="e#1263#2269#0#PHP" expanded="false" />
+            <element signature="e#1619#1761#1#PHP" expanded="false" />
+            <element signature="e#3161#4849#0#PHP" expanded="false" />
+            <element signature="e#4854#5172#0#PHP" expanded="false" />
+            <element signature="e#5083#5139#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
