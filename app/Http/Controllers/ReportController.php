@@ -12,37 +12,18 @@ class ReportController extends Controller
 {
     public function daily(Request $request){
         //支出、收入
-//        $this->getBillInfo($request);
+         $billInfo = $this->getBillInfo($request);
         //账户余额
-//        $billData_money = $this->getWalletInfo($request);
-
-        $this->getCostInfo($request);
-
-//        $todayTime = date('Y-m-d h:i:s');
-//        $todayTime = date_create();
-//
-//        date_time_set($todayTime,0,0,0);
-//        dd($todayTime);
-//        $outlayData = $billData->where([
-//           ['billType','=',"1"]
-//        ])->get();
-//        dd($todayTime);
-//        $incomeData = $billData->where([
-//            ['billType','=',"0"]
-//        ])->get();
-////        dd($incomeData);
-////        $outlayData_sum = $outlayData->sum('')
-        $billData_data = $billData->get();
-        $billData_count = $billData->count();
-        $billData_sum = $billData->sum('daily_cost');
+        $walletInfo = $this->getWalletInfo($request);
+        //成本信息
+        $coustInfo = $this->getCostInfo($request);
         return response()->json([
             'msg'=>'',
             'state'=>1,
             'data'=>[
-                'sum'=>$billData_sum,
-                'count'=>$billData_count,
-                'money'=>$billData_money
-//                'list'=>$billData_data
+                'billInfo'=>$billInfo,
+                'walletInfo'=>$walletInfo,
+                'coustInfo'=>$coustInfo
             ]
         ]);
     }
@@ -52,9 +33,9 @@ class ReportController extends Controller
         $walletData = $walletModel->where([
             ['user_id','=',Auth::user()->id]
         ])->get();
-        dd($walletData[0]['money']);
+        //先默认只有1个钱包
         return [
-            'wallet'=>$walletData['money']
+            'wallet'=>$walletData[0]['money']
         ];
     }
 
@@ -70,6 +51,7 @@ class ReportController extends Controller
             ['created_at','>=',$beginTime],
             ['created_at','<=',$endTime]
         ]);
+        $billData_list = $billData->get();
         $outlayData = $billData->where([
             ['billType','=','1']
         ])->get();
@@ -78,7 +60,11 @@ class ReportController extends Controller
         ])->get();
         $outlay_allMoney = $outlayData->sum('money');
         $income_allMoney = $incomeData->sum('money');
-        dd($outlay_allMoney);
+        return [
+            'billData_list'=>$billData_list,
+            'billData_out'=>$outlay_allMoney,
+            'billData_in'=>$income_allMoney
+        ];
     }
     private function getCostInfo(Request $request){
         $billModel = new Bill;
@@ -95,17 +81,38 @@ class ReportController extends Controller
         $outlayData = $billData->where([
             ['billType','=','1']
         ])->get();
-        $beginTime =$outlayData[0]['beginTime'];
-        $endTime = $outlayData[0]['endTime'];
 
-        $this->get_intervalDays($beginTime,$endTime);
+        $outlayData_count = $outlayData->count();
+//        foreach($outlayData as $outlayDataItem){
+//            $beginTime =$outlayDataItem['beginTime'];
+//            $endTime = $outlayDataItem['endTime'];
+//            $intervalDays = $this->get_intervalDays($beginTime,$endTime);
+//            $money = $outlayDataItem['money'];
+//            $dailyMoney += bcdiv($money,$intervalDays,5);
+//        }
+//        $dailyMoney = round($dailyMoney,2);
 
-        dd(time($endTime),$beginTime);
+
+        $outlayData_list = $outlayData->sortBy('endTime')->slice(0,3);
+        //slice 限制返回前端的个数，这里限制为3个
+
+
+
+        return [
+            'outlayData_count'=>$outlayData_count,
+            'outlayData_list'=>$outlayData_list
+        ];
+
 
     }
     private function get_intervalDays($beginTime,$endTime){
         $time1 = strtotime($beginTime);
         $time2 = strtotime($endTime);
-        dd($time2-$time1);
+        $resultVal = ($time2-$time1)/3600/24;
+        //如果两个时间差为0，说明其时间间隔也是1天，故做下面这种赋值
+        if($resultVal==0){
+            $resultVal = 1;
+        }
+        return $resultVal;
     }
 }
