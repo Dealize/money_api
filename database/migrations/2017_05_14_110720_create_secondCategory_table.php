@@ -32,6 +32,7 @@ class CreateSecondCategoryTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::drop('secondCategory');
     }
 }
