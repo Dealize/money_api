@@ -60,12 +60,19 @@ class ReportController extends Controller
             ['created_at','<=',$endTime]
         ]);
         $billData_list = $billData->get();
-        $outlayData = $billData->where([
+
+        $outlayData = $billModel->where([
+            ['user_id','=',Auth::user()->id],
+            ['created_at','>=',$beginTime],
+            ['created_at','<=',$endTime],
             ['billType','=','1']
-        ])->get();
-        $incomeData = $billData->where([
-            ['billType','=','0']
-        ])->get();
+        ]);
+        $incomeData = $billModel->where([
+            ['user_id','=',Auth::user()->id],
+            ['created_at','>=',$beginTime],
+            ['created_at','<=',$endTime],
+            ['billType','=','2']
+        ]);
         $outlay_allMoney = $outlayData->sum('money');
         $income_allMoney = $incomeData->sum('money');
         return [
@@ -81,15 +88,12 @@ class ReportController extends Controller
         $beginTime = date_format($todayTime,"Y/m/d H:i:s");
         date_time_set($todayTime,23,59,59);
         $endTime = date_format($todayTime,"Y/m/d H:i:s");
-        $billData = $billModel->where([
+        $outlayData = $billModel->where([
             ['user_id','=',Auth::user()->id],
             ['beginTime','<=',$beginTime],
             ['endTime','>=',$endTime],
-        ]);
-        $outlayData = $billData->where([
             ['billType','=','1']
         ])->get();
-
         $outlayData_count = $outlayData->count();
         $outlayData_list = $outlayData->sortBy('endTime')->slice(0,3);
         //slice 限制返回前端的个数，这里限制为3个
@@ -108,17 +112,18 @@ class ReportController extends Controller
         $beginTime = date_format($todayTime,"Y/m/d H:i:s");
         date_time_set($todayTime,23,59,59);
         $endTime = date_format($todayTime,"Y/m/d H:i:s");
-        $billData = $billModel->where([
+        $incomeData = $billModel->where([
             ['user_id','=',Auth::user()->id],
             ['beginTime','<=',$beginTime],
             ['endTime','>=',$endTime],
-        ]);
-        $outlayData = $billData->where([
+            ['billType','=','2']
+        ])->get();
+        $outlayData = $billModel->where([
+            ['user_id','=',Auth::user()->id],
+            ['beginTime','<=',$beginTime],
+            ['endTime','>=',$endTime],
             ['billType','=','1']
         ])->get();
-        $incomeData = $billData->where([
-            ['billType','=','2']
-        ]);
         $outlayData_money =0;
         $incomeData_money = 0;
         foreach($outlayData as $outlayDataItem){

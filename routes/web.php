@@ -34,6 +34,13 @@ Route::post('/category/first/update','CategoryController@firstUpdate')->middlewa
 Route::post('/category/second/add','CategoryController@secondAdd')->middleware('myAuth');
 Route::post('/category/get','CategoryController@getInfo')->middleware('myAuth');
 
+
+Route::post('/incomecategory/first/add','IncomeCategoryController@firstAdd')->middleware('myAuth');
+Route::post('/incomecategory/first/update','IncomeCategoryController@firstUpdate')->middleware('myAuth');
+Route::post('/incomecategory/second/add','IncomeCategoryController@secondAdd')->middleware('myAuth');
+Route::post('/incomecategory/second/update','IncomeCategoryController@secondUpdate')->middleware('myAuth');
+Route::post('/incomecategory/get','IncomeCategoryController@getInfo')->middleware('myAuth');
+
 Route::post('/bill/add','BillController@billAdd')->middleware('myAuth');
 //Route::post('/bill/list','BillController@billAdd')->middleware('myAuth');
 //Route::post('/bill/update','BillController@billAdd')->middleware('myAuth');
