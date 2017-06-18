@@ -2,17 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="89a61035-9839-4480-8a9f-dc8c68e3b1ad" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitIgnore" afterPath="$PROJECT_DIR$/.gitIgnore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2017_05_14_105707_create_firstCategory_table.php" afterPath="$PROJECT_DIR$/database/migrations/2017_05_14_105707_create_firstCategory_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2017_05_14_110720_create_secondCategory_table.php" afterPath="$PROJECT_DIR$/database/migrations/2017_05_14_110720_create_secondCategory_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2017_05_14_111959_create_bills_table.php" afterPath="$PROJECT_DIR$/database/migrations/2017_05_14_111959_create_bills_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2017_05_15_231015_create_wallet_table.php" afterPath="$PROJECT_DIR$/database/migrations/2017_05_15_231015_create_wallet_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2017_05_16_155659_create_userRole_table.php" afterPath="$PROJECT_DIR$/database/migrations/2017_05_16_155659_create_userRole_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2017_06_04_193005_add_avgcost_to_bills_table.php" afterPath="$PROJECT_DIR$/database/migrations/2017_06_04_193005_add_avgcost_to_bills_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2017_06_17_091621_create_table_incomeCategory.php" afterPath="$PROJECT_DIR$/database/migrations/2017_06_17_091621_create_table_incomeCategory.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2017_06_17_091822_create_table_incomeSecondCategory.php" afterPath="$PROJECT_DIR$/database/migrations/2017_06_17_091822_create_table_incomeSecondCategory.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -76,7 +67,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2014_10_12_000000_create_users_table.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="2014_10_12_000000_create_users_table.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="275">
@@ -86,21 +77,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2017_06_17_091822_create_table_incomeSecondCategory.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/migrations/2017_06_17_091822_create_table_incomeSecondCategory.php">
+      <file leaf-file-name=".gitIgnore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitIgnore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="34" column="47" lean-forward="false" selection-start-line="34" selection-start-column="47" selection-end-line="34" selection-end-column="47" />
+            <state relative-caret-position="-2300">
+              <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2017_06_17_091621_create_table_incomeCategory.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/migrations/2017_06_17_091621_create_table_incomeCategory.php">
+      <file leaf-file-name=".env" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.env">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="32" column="47" lean-forward="false" selection-start-line="32" selection-start-column="47" selection-end-line="32" selection-end-column="47" />
+            <state relative-caret-position="650">
+              <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -213,7 +204,6 @@
         <option value="$PROJECT_DIR$/app/Http/Middleware/1.php" />
         <option value="$PROJECT_DIR$/app/Http/Kernel.php" />
         <option value="$PROJECT_DIR$/app/Http/Middleware/EnableCrossRequestMiddleware.php" />
-        <option value="$PROJECT_DIR$/.gitIgnore" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/BillController.php" />
         <option value="$PROJECT_DIR$/database/migrations/2017_06_05_225808_create_outlays_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2017_06_05_230231_create_incomes_table.php" />
@@ -236,6 +226,7 @@
         <option value="$PROJECT_DIR$/database/migrations/2017_05_14_105707_create_firstCategory_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" />
+        <option value="$PROJECT_DIR$/.gitIgnore" />
       </list>
     </option>
   </component>
@@ -598,7 +589,7 @@
       <workItem from="1496674544114" duration="6059000" />
       <workItem from="1497395497718" duration="3315000" />
       <workItem from="1497535503062" duration="9177000" />
-      <workItem from="1497737765284" duration="4210000" />
+      <workItem from="1497737765284" duration="4646000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1494751348766</created>
@@ -747,11 +738,18 @@
       <option name="project" value="LOCAL" />
       <updated>1497742507617</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="add Schema::disableForeignKeyConstraints();">
+      <created>1497743880625</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1497743880625</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="83925000" />
+    <option name="totallyTimeSpent" value="84361000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -852,7 +850,8 @@
     <MESSAGE value="到公司了修改下migrate，然后重新迁移个数据库吧" />
     <MESSAGE value="算了还是不迁移了，日后再说吧" />
     <MESSAGE value="dailyreport is finish" />
-    <option name="LAST_COMMIT_MESSAGE" value="dailyreport is finish" />
+    <MESSAGE value="add Schema::disableForeignKeyConstraints();" />
+    <option name="LAST_COMMIT_MESSAGE" value="add Schema::disableForeignKeyConstraints();" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -977,14 +976,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="475">
           <caret line="19" column="150" lean-forward="false" selection-start-line="19" selection-start-column="150" selection-end-line="19" selection-end-column="150" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitIgnore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1121,14 +1112,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="650">
-          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2017_06_17_091822_create_table_incomeSecondCategory.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="275">
@@ -1205,6 +1188,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="275">
           <caret line="41" column="47" lean-forward="false" selection-start-line="41" selection-start-column="47" selection-end-line="41" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="650">
+          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitIgnore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2300">
+          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
