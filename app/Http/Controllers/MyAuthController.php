@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Auth;
 
 class MyAuthController extends Controller
 {
+    public function __construct(){
+        $this->middleware('guest', ['except' => ['logout', 'getLogout']]);
+    }
     public function login(Request $request){
         $email = $request->input('email');
         $password = $request->input('password');
@@ -54,6 +57,15 @@ class MyAuthController extends Controller
         return response()->json([
             'state'=>1,
             'msg'=>'注册成功'
+        ]);
+    }
+
+
+    public function logout(Request $request){
+        Auth::logout();
+        return response()->json([
+            'msg'=>'logout',
+            'state'=>1
         ]);
     }
 }

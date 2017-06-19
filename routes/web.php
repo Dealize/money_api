@@ -27,6 +27,7 @@ Route::post('/hello',function(){
 
 Route::post('/myAuthor/login','MyAuthController@login');
 Route::post('/myAuthor/register','MyAuthController@register');
+Route::post('/myAuthor/logout','MyAuthController@logout');
 
 
 Route::post('/category/first/add','CategoryController@firstAdd')->middleware('myAuth');
