@@ -70,7 +70,6 @@ class CategoryController extends Controller
         $secondCategory->user_id = Auth::user()->id;
         $secondCategory->valiable = 'true';
         $result = $secondCategory->save();
-        dd($result);
         if($result){
             return response()->json([
                 'msg'=>'save success',
@@ -78,23 +77,66 @@ class CategoryController extends Controller
             ]);
         }
     }
-    public function getInfo(Request $request){
+    public function secondUpdate(Request $request){
+        $secondCategory = new SecondCategory;
+        $inputData = $this->check_valiable($request,1);
+        if(!$inputData['result']){
+            return $inputData['data'];
+        }
+        $id = $inputData['data']['id'];
+        $name = $inputData['data']['name'];
+        $modelData = $secondCategory->find($id);
+        if(Auth::user()->id!=$modelData->user_id){
+            return response()->json([
+                'msg'=>'非创建者不能修改',
+                'state'=>0
+            ]);
+        }
+        $modelData->name = $name;
+        if($modelData->save()){
+            return response()->json([
+                'msg'=>'update success',
+                'state'=>1
+            ]);
+        }
+    }
+
+    public function getSelfCategory(Request $request){
+        $resultInfo = $this->getInfo($request,'self');
+        return response()->json([
+            'state'=>1,
+            'data'=>$resultInfo
+        ]);
+    }
+    public function getValiableCategory(Request $request){
+        $requestInfo = $this->getInfo($request,'valiable');
+        return response()->json([
+            'state'=>1,
+            'data'=>$requestInfo
+        ]);
+    }
+
+
+
+    public function getInfo(Request $request,$type){
         $firstCategory = new FirstCategory;
         $secondCategory = new SecondCategory;
+        $firstCategoryData = [];
         $finalData = [];
-//        dd(Auth::user()->id);
-//        $secondCategoryData =
-        $firstCategoryData = $firstCategory->where('user_id',Auth::user()->id)->get();
+        if($type=='self'){
+            $firstCategoryData = $firstCategory->where('user_id',Auth::user()->id)->get();
+        }else if($type=='valiable'){
+            $userArr = [1,Auth::user()->id];
+            $firstCategoryData = $firstCategory->whereIn('user_id',$userArr)->get();
+        }
 
         foreach ($firstCategoryData as $item){
             $secondCategoryData = $secondCategory->where('firstCategory_id',$item->id)->get();
             $item['secondCategory'] = $secondCategoryData;
         }
-        return response()->json([
-            'state'=>1,
-            'data'=>$firstCategoryData
-        ]);
+        return $firstCategoryData;
     }
+
     private function check_valiable($request,$type=0){
         $name = $request->input('name');
         $id = $request->input('id');
