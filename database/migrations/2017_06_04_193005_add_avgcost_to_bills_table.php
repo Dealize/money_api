@@ -13,7 +13,7 @@ class AddAvgcostToBillsTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table('bills', function (Blueprint $table) {
             //
             $table->decimal('dailyCost',7,2)->comment('每天的花费');
         });
@@ -26,7 +26,7 @@ class AddAvgcostToBillsTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table('bills', function (Blueprint $table) {
             //
             Schema::disableForeignKeyConstraints();
             $table->dropColumn('dailyCost');
