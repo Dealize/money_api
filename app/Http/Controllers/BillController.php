@@ -52,7 +52,7 @@ class BillController extends Controller
         }else if($billType=='2'){
             $num = bcadd($walletMoney,$money);
         }
-        $walletData->money = $money;
+        $walletData->money = $num;
         $walletUpdateResult = $walletData->save();
         $result = $billModel->save();
         if($result && $walletUpdateResult){
