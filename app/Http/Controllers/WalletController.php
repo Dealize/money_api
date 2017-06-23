@@ -12,15 +12,15 @@ class WalletController extends Controller
 {
     //
     public function walletAdd(Request $request){
-        $walletModel = new Wallet;
         $inputData = $this->check_valiable($request,['name','money']);
         if(!$inputData['result']){
             return $inputData['data'];
         }
-        $walletModel->name = $inputData['data']['name'];
-        $walletModel->money = $inputData['data']['money'];
-        $walletModel->user_id = Auth::user()->id;
-        $result = $walletModel->save();
+        $result = $this->createWallet(
+            Auth::user()->id,
+            $inputData['data']['name'],
+            $inputData['data']['money']
+        );
         if($result){
             return response()->json([
                 'msg'=>'save success',
@@ -120,6 +120,14 @@ class WalletController extends Controller
                 $result['data']['money'] = $money;
             }
         }
+        return $result;
+    }
+    public function createWallet($userid,$name='',$money=0){
+        $walletModel = new Wallet;
+        $walletModel->name = $name;
+        $walletModel->money = $money;
+        $walletModel->user_id = $userid;
+        $result = $walletModel->save();
         return $result;
     }
 }

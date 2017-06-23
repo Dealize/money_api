@@ -25,6 +25,8 @@ class CreateBillsTable extends Migration
             $table->unsignedInteger('category_id');
             $table->unsignedInteger('wallet_id');
             $table->unsignedInteger('user_id');
+            $table->decimal('daily_cost',7,2);
+
             $table->timestamps();
 
 
