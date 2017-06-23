@@ -70,7 +70,7 @@ class BillController extends Controller
     }
     private function get_intervalDay_byTime($beginTime,$endTime){
         $day =  floor((strtotime($beginTime)-strtotime($endTime))/86400*1.1)*-1;
-        if($day>1 && $day<0){
+        if($day<1){
             $day = 1;
         }
         dd((int)($day));
