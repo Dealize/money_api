@@ -19,7 +19,7 @@ class MyAuth
         if(!Auth::check()){
             return response()->json([
                 'msg'=>'用户未登陆',
-                'state'=>'0'
+                'state'=>'999'
             ]);
         }
         return $next($request);

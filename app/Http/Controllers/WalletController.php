@@ -41,12 +41,13 @@ class WalletController extends Controller
             'state'=>1,
             'data'=>$walletModelData
         ]);
+
     }
     public function walletUpdate(Request $request){
         $walletModel = new Wallet;
         $inputData = $this->check_valiable($request,['id','money','name']);
         $walletModelData = $walletModel->find($inputData['data']['id']);
-        if($walletModelData->user_id != Auth::uer()->id){
+        if($walletModelData->user_id != Auth::user()->id){
             return response()->json([
                 'msg'=>'该钱包非当前用户创建',
                 'state'=>0,
@@ -107,7 +108,7 @@ class WalletController extends Controller
                 return $result;
             }else{
                 $money +=0;//转换为数字
-                if($money>9999999 || $money<-9999999){
+                if($money>99999999 || $money<-9999999){
                     $result['result'] = false;
                     $result['data'] = response()->json([
                         'msg'=>'数值超出范围',

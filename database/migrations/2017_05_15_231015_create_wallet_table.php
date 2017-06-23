@@ -16,7 +16,7 @@ class CreateWalletTable extends Migration
         Schema::create('wallet', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->decimal('money',7,2);
+            $table->decimal('money',9,2);
             $table->unsignedInteger('user_id');
             $table->string('valiable')->default('true');
             $table->timestamps();
@@ -31,6 +31,7 @@ class CreateWalletTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::drop('wallet');
     }
 }
