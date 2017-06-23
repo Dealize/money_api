@@ -28,9 +28,9 @@ class CreateBillsTable extends Migration
             $table->timestamps();
 
 
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('category_id')->references('id')->on('secondCategory');
-            $table->foreign('wallet_id')->references('id')->on('wallet');
+            //$table->foreign('user_id')->references('id')->on('users');
+            //$table->foreign('category_id')->references('id')->on('secondCategory');
+            //$table->foreign('wallet_id')->references('id')->on('wallet');
         });
     }
 
