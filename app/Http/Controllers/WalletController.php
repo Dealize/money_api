@@ -99,7 +99,7 @@ class WalletController extends Controller
             }
         }
         if(in_array('money',$type) ){
-            if(!$money){
+            if($money==null || $money==undefined){
                 $result['result'] = false;
                 $result['data'] = response()->json([
                     'msg'=>'数据输入不合法',
