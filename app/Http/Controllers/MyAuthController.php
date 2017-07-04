@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\WalletController;
 
 
 class MyAuthController extends Controller
@@ -31,7 +32,7 @@ class MyAuthController extends Controller
     }
 
     public function register(Request $request){
-//        dd(555);
+        dd(555);
         $name = $request->input('name');
         $email = $request->input('email');
         $password = $request->input('password');
