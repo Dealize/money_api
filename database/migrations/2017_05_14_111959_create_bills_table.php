@@ -25,12 +25,14 @@ class CreateBillsTable extends Migration
             $table->unsignedInteger('category_id');
             $table->unsignedInteger('wallet_id');
             $table->unsignedInteger('user_id');
+            $table->decimal('daily_cost',7,2);
+
             $table->timestamps();
 
 
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('category_id')->references('id')->on('secondCategory');
-            $table->foreign('wallet_id')->references('id')->on('wallet');
+            //$table->foreign('user_id')->references('id')->on('users');
+            //$table->foreign('category_id')->references('id')->on('secondCategory');
+            //$table->foreign('wallet_id')->references('id')->on('wallet');
         });
     }
 

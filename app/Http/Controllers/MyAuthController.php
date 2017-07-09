@@ -3,16 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Http\Controllers\WalletController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\WalletController;
 
 
 class MyAuthController extends Controller
 {
-    public function __construct(){
-        $this->middleware('guest', ['except' => ['logout', 'getLogout']]);
-    }
+//    public function __construct(){
+//        $this->middleware('guest', ['except' => ['logout', 'getLogout']]);
+//    }
     public function login(Request $request){
         $email = $request->input('email');
         $password = $request->input('password');
@@ -32,33 +32,43 @@ class MyAuthController extends Controller
     }
 
     public function register(Request $request){
-        dd(555);
+        $userModel = new User;
         $name = $request->input('name');
         $email = $request->input('email');
         $password = $request->input('password');
+        $walletCtrl = new WalletController();
         if((!$email) || (!$password)){
             return response()->json([
                'state'=>0,
                 'msg'=>'缺少参数'
             ]);
         }
-
         if(User::where('email',$email)->count()!=0){
             return response()->json([
                 'state'=>0,
                 'msg'=>'用户已经存在'
             ]);
         };
-
         $result =User::create([
             'name'=>$name,
             'email'=>$email,
             'password'=>bcrypt($password)
         ]);
-        return response()->json([
-            'state'=>1,
-            'msg'=>'注册成功'
-        ]);
+        $userId = $result->id;
+        $walletResult = $walletCtrl->createWallet($userId);
+        if($result){
+            if($walletResult){
+                return response()->json([
+                    'state' =>1,
+                    'msg'=>'注册成功！'
+                ]);
+            }else{
+                return response()->json([
+                    'state' =>1,
+                    'msg'=>'注册成功,需要手动创建账户余额'
+                ]);
+            }
+        }
     }
 
 

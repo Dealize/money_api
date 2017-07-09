@@ -21,7 +21,7 @@ Auth::routes();
 //    return '123';
 //});
 Route::post('/hello',function(){
-    return '666226';
+//    return '111222';
 });
 
 
