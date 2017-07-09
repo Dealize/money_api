@@ -95,12 +95,17 @@ class ReportController extends Controller
             ['billType','=','1']
         ])->get();
         $outlayData_count = $outlayData->count();
-        $outlayData_list = $outlayData->sortBy('endTime')->slice(0,3);
+        $outlayData_list = $outlayData->sortBy('endTime');
         //slice 限制返回前端的个数，这里限制为3个
-
+        $listLength = count($outlayData_list);
+        $finalList = [];
+        $listLength = $listLength>3?3:$listLength;
+        foreach($outlayData_list as $item){
+            array_push($finalList,$item);
+        }
         return [
             'outlayData_count'=>$outlayData_count,
-            'outlayData_list'=>$outlayData_list
+            'outlayData_list'=>array_slice($finalList,0,$listLength)
         ];
 
 
@@ -110,7 +115,7 @@ class ReportController extends Controller
         $todayTime = date_create();
         date_time_set($todayTime,0,0,0);
         $beginTime = date_format($todayTime,"Y/m/d H:i:s");
-        date_time_set($todayTime,23,59,59);
+        date_time_set($todayTime,0,0,0);
         $endTime = date_format($todayTime,"Y/m/d H:i:s");
         $incomeData = $billModel->where([
             ['user_id','=',Auth::user()->id],
@@ -124,6 +129,7 @@ class ReportController extends Controller
             ['endTime','>=',$endTime],
             ['billType','=','1']
         ])->get();
+
         $outlayData_money =0;
         $incomeData_money = 0;
         foreach($outlayData as $outlayDataItem){
