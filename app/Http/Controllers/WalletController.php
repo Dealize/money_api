@@ -46,6 +46,9 @@ class WalletController extends Controller
     public function walletUpdate(Request $request){
         $walletModel = new Wallet;
         $inputData = $this->check_valiable($request,['id','money','name']);
+        if(!$inputData['result']){
+            return $inputData['data'];
+        }
         $walletModelData = $walletModel->find($inputData['data']['id']);
         if($walletModelData->user_id != Auth::user()->id){
             return response()->json([
@@ -99,7 +102,7 @@ class WalletController extends Controller
             }
         }
         if(in_array('money',$type) ){
-            if($money==null || $money==undefined){
+            if($money==null){
                 $result['result'] = false;
                 $result['data'] = response()->json([
                     'msg'=>'数据输入不合法',
@@ -122,7 +125,7 @@ class WalletController extends Controller
         }
         return $result;
     }
-    public function createWallet($userid,$name='',$money=0){
+    public function createWallet($userid,$name='default',$money=0){
         $walletModel = new Wallet;
         $walletModel->name = $name;
         $walletModel->money = $money;

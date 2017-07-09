@@ -10,9 +10,9 @@ use Illuminate\Support\Facades\Auth;
 
 class MyAuthController extends Controller
 {
-    public function __construct(){
-        $this->middleware('guest', ['except' => ['logout', 'getLogout']]);
-    }
+//    public function __construct(){
+//        $this->middleware('guest', ['except' => ['logout', 'getLogout']]);
+//    }
     public function login(Request $request){
         $email = $request->input('email');
         $password = $request->input('password');

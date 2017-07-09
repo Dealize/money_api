@@ -21,7 +21,7 @@ Auth::routes();
 //    return '123';
 //});
 Route::post('/hello',function(){
-    return '666226';
+//    return '111222';
 });
 
 
@@ -64,6 +64,10 @@ Route::post('/wallet/update','WalletController@walletUpdate')->middleware('myAut
 Route::post('/report/daily','ReportController@daily')->middleware('myAuth');
 Route::post('/report/index','ReportController@index')->middleware('myAuth');
 
+Route::post('/feedback/add','FeedBackController@add')->middleware('myAuth');
+
+
+
 
 
 Route::middleware('auth:api')->get('/home', 'HomeController@index')->name('home');
@@ -73,6 +77,3 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

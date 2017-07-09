@@ -19,11 +19,12 @@ class BillController extends Controller
             return $inputData['data'];
         }
         $beginTime = $inputData['data']['beginTime'];
+        //由于间隔最少都要是一天。所以这里要给结束时间+1天
         $endTime = $inputData['data']['endTime'];
-        $day = (int)floor(($endTime - $beginTime)/86400);
+        $day = $this->get_intervalDay_byTime($beginTime,$endTime);
+//        $day = (int)floor(($endTime - $beginTime)/86400);
         $beginTime = date('Y-m-d',$beginTime);
         $endTime = date('Y-m-d',$endTime);
-
         $billModel->beginTime = $beginTime;
         $billModel->endTime = $endTime;
         $billModel->days = $day;
@@ -73,7 +74,7 @@ class BillController extends Controller
         if($day<1){
             $day = 1;
         }
-        dd((int)($day));
+        return $day;
     }
     private function check_valiable($request,$type){
         $money = $request->input('money');
