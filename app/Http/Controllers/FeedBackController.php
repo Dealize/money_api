@@ -13,9 +13,11 @@ class FeedBackController extends Controller
         $feedbackModal = new FeedBack;
         $result = [];
         $name = $request->input('name')||"";
-        $type = $request->input('type')||"";
-        $content = $request->input('content')||"";
-        $contact = $request->input('contact')||"";
+        $type = $request->input('type');
+        $content = $request->input('content');
+        $contact = $request->input('contact');
+        $name = $name || '';
+        dd($name,$content);
         if(!($name || $type)){
             $result['result'] = false;
             $result['data'] = response()->json([
