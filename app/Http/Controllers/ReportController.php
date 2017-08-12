@@ -27,16 +27,7 @@ class ReportController extends Controller
             ]
         ]);
     }
-    public function index(Request $request){
-        $indexInfo = $this->getBaseCostInfo($request);
-        return response()->json([
-            'msg'=>'',
-            'state'=>1,
-            'data'=>[
-                'indexInfo'=>$indexInfo,
-            ]
-        ]);
-    }
+
     private function getWalletInfo(Request $request){
         $walletModel = new Wallet;
         $walletData = $walletModel->where([
@@ -108,51 +99,6 @@ class ReportController extends Controller
             'outlayData_list'=>array_slice($finalList,0,$listLength)
         ];
 
-
-    }
-    private function getBaseCostInfo(Request $request){
-        $billModel = new Bill;
-        $todayTime = date_create();
-        date_time_set($todayTime,0,0,0);
-        $beginTime = date_format($todayTime,"Y/m/d H:i:s");
-        date_time_set($todayTime,0,0,0);
-        $endTime = date_format($todayTime,"Y/m/d H:i:s");
-        $incomeData = $billModel->where([
-            ['user_id','=',Auth::user()->id],
-            ['beginTime','<=',$beginTime],
-            ['endTime','>=',$endTime],
-            ['billType','=','2']
-        ])->get();
-        $outlayData = $billModel->where([
-            ['user_id','=',Auth::user()->id],
-            ['beginTime','<=',$beginTime],
-            ['endTime','>=',$endTime],
-            ['billType','=','1']
-        ])->get();
-
-        $outlayData_money =0;
-        $incomeData_money = 0;
-        foreach($outlayData as $outlayDataItem){
-            $beginTime =$outlayDataItem['beginTime'];
-            $endTime = $outlayDataItem['endTime'];
-            $intervalDays = $this->get_intervalDays($beginTime,$endTime);
-            $money = $outlayDataItem['money'];
-            $outlayData_money += bcdiv($money,$intervalDays,5);
-        }
-        foreach($incomeData as $incomeDataItem){
-            $beginTime =$incomeDataItem['beginTime'];
-            $endTime = $incomeDataItem['endTime'];
-            $intervalDays = $this->get_intervalDays($beginTime,$endTime);
-            $money = $incomeDataItem['money'];
-            $incomeData_money += bcdiv($money,$intervalDays,5);
-        }
-        $outlayData_money = round($outlayData_money,2);
-        $incomeData_money = round($incomeData_money,2);
-
-        return [
-            'outlayData_money'=>$outlayData_money,
-            'incomeData_money'=>$incomeData_money
-        ];
 
     }
     private function get_intervalDays($beginTime,$endTime){

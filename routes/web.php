@@ -62,7 +62,8 @@ Route::post('/wallet/update','WalletController@walletUpdate')->middleware('myAut
 
 
 Route::post('/report/daily','ReportController@daily')->middleware('myAuth');
-Route::post('/report/index','ReportController@index')->middleware('myAuth');
+
+Route::post('/report/index','IndexReportController@index')->middleware('myAuth');
 
 Route::post('/feedback/add','FeedBackController@add')->middleware('myAuth');
 

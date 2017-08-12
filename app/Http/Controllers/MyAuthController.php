@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Http\Controllers\WalletController;
+use App\Http\Controllers\ReportCurrencyController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -37,6 +38,7 @@ class MyAuthController extends Controller
         $email = $request->input('email');
         $password = $request->input('password');
         $walletCtrl = new WalletController();
+        $currencyCtrl = new ReportCurrencyController();
         if((!$email) || (!$password)){
             return response()->json([
                'state'=>0,
@@ -68,7 +70,8 @@ class MyAuthController extends Controller
                     'msg'=>'注册成功,需要手动创建账户余额'
                 ]);
             }
-        }
+        };
+        $reportCurrencyResult = $currencyCtrl->createAccount($userId);
     }
 
 
