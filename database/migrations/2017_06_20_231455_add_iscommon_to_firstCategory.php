@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserRoleTable extends Migration
+class AddIscommonToFirstCategory extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateUserRoleTable extends Migration
      */
     public function up()
     {
-        Schema::create('userRule', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
+        Schema::table('firstCategory', function (Blueprint $table) {
+            //
+            $table->string('commonType')->nullable();
         });
     }
 
@@ -26,7 +26,9 @@ class CreateUserRoleTable extends Migration
      */
     public function down()
     {
-        Schema::disableForeignKeyConstraints();
-        Schema::dropIfExists('userRule');
+        Schema::table('firstCategory', function (Blueprint $table) {
+            //
+            $table->dropColumn('commonType');
+        });
     }
 }

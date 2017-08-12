@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\FirstCategory;
-use App\SecondCategory;
+use App\IncomeCategory;
+use App\IncomeSecondCategory;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class CategoryController extends Controller
+class IncomeCategoryController extends Controller
 {
     public function firstAdd(Request $request)
     {
-        $firstCategory = new FirstCategory;
+        $firstCategory = new IncomeCategory;
 
         $inputData = $this->check_valiable($request);
         if(!$inputData['result']){
@@ -34,7 +34,7 @@ class CategoryController extends Controller
         }
     }
     public function firstUpdate(Request $request){
-        $firstCategory = new FirstCategory;
+        $firstCategory = new IncomeCategory;
         $inputData = $this->check_valiable($request,1);
         if(!$inputData['result']){
             return $inputData['data'];
@@ -57,8 +57,8 @@ class CategoryController extends Controller
         }
     }
     public function secondAdd(Request $request){
-        $firstCategory = new FirstCategory;
-        $secondCategory = new SecondCategory;
+        $firstCategory = new IncomeCategory;
+        $secondCategory = new IncomeSecondCategory;
         $inputData = $this->check_valiable($request,2);
         if(!$inputData['result']){
             return $inputData['data'];
@@ -77,8 +77,9 @@ class CategoryController extends Controller
             ]);
         }
     }
+
     public function secondUpdate(Request $request){
-        $secondCategory = new SecondCategory;
+        $secondCategory = new IncomeSecondCategory;
         $inputData = $this->check_valiable($request,1);
         if(!$inputData['result']){
             return $inputData['data'];
@@ -118,9 +119,10 @@ class CategoryController extends Controller
 
 
 
-    public function getInfo(Request $request,$type){
-        $firstCategory = new FirstCategory;
-        $secondCategory = new SecondCategory;
+
+    private function getInfo(Request $request,$type){
+        $firstCategory = new IncomeCategory;
+        $secondCategory = new IncomeSecondCategory;
         $firstCategoryData = [];
         $finalData = [];
         if($type=='self'){
@@ -135,6 +137,7 @@ class CategoryController extends Controller
             $item['secondCategory'] = $secondCategoryData;
         }
         return $firstCategoryData;
+
     }
 
     private function check_valiable($request,$type=0){
